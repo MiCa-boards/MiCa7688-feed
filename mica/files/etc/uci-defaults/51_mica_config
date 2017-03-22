@@ -30,12 +30,11 @@ WMODE=`uci get  wireless.radio0.mica_mode`
 . /lib/ramips.sh
 board=$(ramips_board_name)
 
-[ "$board" = "mica7688" ] || rm /etc/avahi/services/arduino.service
 
 
 uci set system.@system[-1].hostname="myMiCa"
 uci set wireless.radio0.disabled=0
-uci set network.lan.ipaddr=192.168.1.1
+uci set network.lan.ipaddr=192.168.10.1
 
 SSID=`fw_printenv -n wifi_ssid`
 KEY=`fw_printenv -n wifi_key`
