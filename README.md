@@ -1,4 +1,4 @@
-# linkit-smart-feed
+# mica-feed
 This feeds holds the SDK wifi driver and the config/meta package for the MiCa7688
 
 # Build the firmware from sources
