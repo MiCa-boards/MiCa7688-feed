@@ -48,4 +48,4 @@ define Package/mica/install
 	$(CP) ./files/* $(1)
 endef
 
-$(eval $(call BuildPackage,mtk-linkit))
+$(eval $(call BuildPackage,mica))
