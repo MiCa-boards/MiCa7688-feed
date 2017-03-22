@@ -6,6 +6,6 @@
    <type>_arduino._tcp</type>
    <port>80</port>
    <txt-record>distro_version=0.1</txt-record>
-   <txt-record>board=smart7688</txt-record>
+   <txt-record>board=MiCa7688</txt-record>
   </service>
 </service-group>

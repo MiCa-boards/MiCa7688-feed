@@ -23,7 +23,7 @@ config wifi-device	radio0
 	option htmode	HT40
 	option channel  auto
 	option disabled	1
-	option linkit_mode	ap
+	option mica_mode	ap
 
 config wifi-iface ap
 	option device   radio0

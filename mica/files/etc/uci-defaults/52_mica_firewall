@@ -1,6 +1,6 @@
 #!/bin/sh
 
-[ "$(uci get system.@system[-1].linkit_firstboot)" = "1" ] && return 0
+[ "$(uci get system.@system[-1].mica_firstboot)" = "1" ] && return 0
 . /lib/functions.sh
 
 config_load firewall
