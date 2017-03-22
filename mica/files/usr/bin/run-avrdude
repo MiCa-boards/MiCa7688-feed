@@ -2,4 +2,4 @@
 
 mt7688_pinmux set spi_s gpio
 
-avrdude -c linuxgpio -C /etc/avrdude.conf -p m32u4 -e -v -Uflash:w:$1 $2
+avrdude -c linuxgpio -C /etc/avrdude.conf -p m328p -e -v -Uflash:w:$1 $2
