@@ -6,9 +6,11 @@
 
 include $(TOPDIR)/rules.mk
 
+
 PKG_NAME:=mica-webui
 PKG_VERSION:=2015-07-07
 PKG_RELEASE=$(PKG_SOURCE_VERSION)
+
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://github.com/fpessolano/MiCa7688-WebUI.git
