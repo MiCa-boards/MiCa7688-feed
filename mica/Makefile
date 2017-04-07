@@ -24,7 +24,7 @@ define Package/mica
 	+kmod-nls-iso8859-15 +kmod-nls-iso8859-2 +kmod-nls-utf8 \
 	+kmod-sdhci-mt7620 +kmod-usb-storage \
 	+kmod-video-core +kmod-video-uvc \
-	+mtk-sdk-wifi +tcpdump-mini +mica-webui
+	+kmod-mt76 +tcpdump-mini +mica-webui
 
   CATEGORY:=Base system
   DEFAULT:=y
