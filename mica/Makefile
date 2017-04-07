@@ -16,6 +16,7 @@ define Package/mica
   	+avahi-nodbus-daemon +mountd +mjpg-streamer \
 	+uhttpd +rpcd +rpcd-mod-iwinfo +git +git-http \
 	+python +python-pyserial +python-pip +hidapi \
+	+libmraa +libupm +yunbridge \
 	+luci +luci-theme-openwrt +luci-app-mjpg-streamer +luci-lib-json \
 	+rpcd-mod-rpcsys +cgi-io +avrdude +spi-tools +uboot-envtools \
 	+kmod-fs-vfat +kmod-fs-exfat +kmod-i2c-core +kmod-i2c-ralink \
@@ -23,7 +24,7 @@ define Package/mica
 	+kmod-nls-iso8859-15 +kmod-nls-iso8859-2 +kmod-nls-utf8 \
 	+kmod-sdhci-mt7620 +kmod-usb-storage \
 	+kmod-video-core +kmod-video-uvc \
-	+kmod-mt76 +tcpdump-mini +mica-webui
+	+mtk-sdk-wifi +tcpdump-mini +mica-webui
 
   CATEGORY:=Base system
   DEFAULT:=y
