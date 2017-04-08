@@ -13,36 +13,39 @@ write_ralink() {
 
 	[ -d /sys/module/$dir ] || return
 	[ -d "/sys/class/net/$dev" ] || return
+	MAC=$(dd bs=1 skip=7 count=3 if=/dev/mtd2 2>/dev/null | hexdump -v -n 3 -e '3/1 "%02X"')
+	SSID=MT_Base_${MAC}
 
-	cat <<EOF
-config wifi-device	radio0
-	option type     ralink
-	option variant	$devtype
-	option country	TW
-	option hwmode	$mode
-	option htmode	HT40
-	option channel  auto
-	option disabled	1
-	option mica_mode	ap
+        uci -q batch <<EOF
 
-config wifi-iface ap
-	option device   radio0
-	option mode	ap
-	option network  lan
-	option ifname   $dev
-	option ssid	OpenWrt
-	option encryption none 
-
-config wifi-iface sta
-	option device   radio0
-	option mode	sta
-	option network  wan
-	option ifname   $sta
-	option led 	mica:green:wifi
-	option ssid	UplinkAp
-	option key	SecretKey
-	option encryption psk
+    set wireless.radio0=wifi-device
+	set wireless.radio0.type='ralink'
+	set wireless.radio0.variant='$devtype'
+	set wireless.radio0.country='BE'
+	set wireless.radio0.hwmode='$mode'
+	set wireless.radio0.htmode='HT40'
+	set wireless.radio0.channel=auto
+	set wireless.radio0.disabled='1'
+	set wireless.radio0.mica_mode='ap'
+	set wireless.ap=wifi-iface
+	set wireless.ap.device='radio0'
+	set wireless.ap.mode='ap'
+	set wireless.ap.network='lan'
+	set wireless.ap.ifname='$dev'
+	set wireless.ap.ssid='Openwrt'
+	set wireless.ap.encryption='none' 
+	set wireless.sta=wifi-iface
+	set wireless.sta.device='radio0'
+	set wireless.sta.mode='sta'
+	set wireless.sta.network='wan'
+	set wireless.sta.ifname='$sta'
+	set wireless.sta.led='mica:green:wifi'
+	set wireless.sta.ssid='UplinkAp'
+	set wireless.sta.key='SecretKey'
+	set wireless.sta.encryption='none'
+	
 EOF
+        uci -q commit wireless
 }
 
 detect_ralink() {
@@ -51,7 +54,7 @@ detect_ralink() {
 	cpu=$(awk 'BEGIN{FS="[ \t]+: MediaTek[ \t]"} /system type/ {print $2}' /proc/cpuinfo | cut -d" " -f1)
 	case $cpu in
 	MT7688)
-		write_ralink mt_wifi mt7628 ra0 11g 7
+		write_ralink mt_wifi mt7628 ra0 11g
 		;;
 	esac
 
