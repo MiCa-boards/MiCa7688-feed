@@ -22,7 +22,7 @@ include $(INCLUDE_DIR)/package.mk
 
 define Package/mica-webui
   TITLE:=MiCa7688 Webui
-  DEPENDS:=@TARGET_ramips_mt7688_MiCa7688
+  DEPENDS:=@TARGET_ramips_mt7688
   HIDDEN:=1
 endef
 

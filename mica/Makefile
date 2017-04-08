@@ -11,7 +11,7 @@ include $(INCLUDE_DIR)/package.mk
 define Package/mica
   TITLE:=MiCa Smart board support package
   HIDDEN:=1
-  DEPENDS:=@TARGET_ramips_mt7688_MiCa7688 \
+  DEPENDS:=@TARGET_ramips_mt7688 \
   	+gdbserver +curl +strace +coreutils +coreutils-stty \
   	+avahi-nodbus-daemon +mountd +mjpg-streamer \
 	+uhttpd +rpcd +rpcd-mod-iwinfo +git +git-http \
