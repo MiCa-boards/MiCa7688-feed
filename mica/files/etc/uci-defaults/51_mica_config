@@ -55,6 +55,8 @@ uci set wireless.ap.seq="$SEQ"
 
 uci set network.wan=interface
 uci set network.wan.proto=dhcp
+STAIFNAME=$(uci get wireless.sta.ifname)
+uci set network.wan.ifname=$STAIFNAME
 
 uci set mountd.mountd.path=/Media/
 
