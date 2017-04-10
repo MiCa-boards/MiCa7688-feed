@@ -35,7 +35,7 @@ static int survey_count = 0;
 static char *led_name;
 static int led_state = -1;
 
-#define DEBUG
+//#define DEBUG
 
 #ifdef DEBUG
 #include <stdarg.h>
