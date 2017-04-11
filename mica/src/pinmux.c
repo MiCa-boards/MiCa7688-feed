@@ -83,16 +83,6 @@ static struct pinmux {
 		.func = { "i2s", "gpio", "pcm", NULL },
 		.shift = 6,
 		.mask = 0x3,
-	}, {
-		.name = "ephy",
-		.func = { "ephy", "gpio", NULL, NULL },
-		.shift = 34,
-		.mask = 0x3,
-	}, {
-		.name = "wled",
-		.func = { "wled", "gpio", NULL, NULL },
-		.shift = 32,
-		.mask = 0x3,
 	}
 };
 

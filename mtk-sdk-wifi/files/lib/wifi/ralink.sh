@@ -39,7 +39,7 @@ write_ralink() {
 	set wireless.sta.mode='sta'
 	set wireless.sta.network='wan'
 	set wireless.sta.ifname='$sta'
-	set wireless.sta.led='mica:green:wifi'
+	set wireless.sta.led='mica:wifi'
 	set wireless.sta.ssid='UplinkAp'
 	set wireless.sta.key='SecretKey'
 	set wireless.sta.encryption='none'
