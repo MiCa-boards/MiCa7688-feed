@@ -22,6 +22,8 @@ enum {
 	MUX_UART2,
 	MUX_PWM0,
 	MUX_PWM1,
+	MUX_EPHY,
+	MUX_WLED,
 	__MUX_MAX,
 };
 
@@ -80,6 +82,16 @@ static struct pinmux {
 		.name = "i2s",
 		.func = { "i2s", "gpio", "pcm", NULL },
 		.shift = 6,
+		.mask = 0x3,
+	}, {
+		.name = "ephy",
+		.func = { "ephy", "gpio", NULL, NULL },
+		.shift = 34,
+		.mask = 0x3,
+	}, {
+		.name = "wled",
+		.func = { "wled", "gpio", NULL, NULL },
+		.shift = 32,
 		.mask = 0x3,
 	}
 };
