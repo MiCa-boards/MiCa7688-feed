@@ -41,7 +41,7 @@ endef
 define Package/mica/install
 	$(INSTALL_DIR) $(1)/sbin
 	
-	#$(INSTALL_BIN) $(PKG_BUILD_DIR)/pinmux $(1)/sbin/mt7688_pinmux
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/pinmux $(1)/sbin/mt7688_pinmux
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/refclk $(1)/sbin/mt7688_reclk
 	$(CP) ./files/* $(1)
 endef
