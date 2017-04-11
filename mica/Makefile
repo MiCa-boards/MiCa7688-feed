@@ -12,10 +12,10 @@ define Package/mica
   TITLE:=MiCa Smart board support package
   DEPENDS:=@TARGET_ramips_mt7688 \
   	+gdbserver +curl +strace +coreutils +coreutils-stty \
-  	+avahi-nodbus-daemon +mjpg-streamer \
+  	+avahi-nodbus-daemon +mountd +mjpg-streamer \
 	+uhttpd +rpcd +rpcd-mod-iwinfo +git +git-http \
 	+python +python-pyserial +python-pip +hidapi \
-	+libupm +yunbridge \
+	+yunbridge \
 	+luci +luci-theme-openwrt +luci-app-mjpg-streamer +luci-lib-json \
 	+rpcd-mod-rpcsys +cgi-io +avrdude +spi-tools +uboot-envtools \
 	+kmod-fs-vfat +kmod-fs-exfat +kmod-i2c-core \
@@ -24,6 +24,7 @@ define Package/mica
 	+kmod-sdhci +kmod-sdhci-mt7620 +kmod-usb-storage \
 	+kmod-video-core +kmod-video-uvc \
 	+mtk-sdk-wifi +tcpdump-mini +mica-webui
+   #+libmraa +libupm +node +node-hid +node-cylon-firmata
 
   CATEGORY:=MiCa
   DEFAULT:=y
