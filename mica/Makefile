@@ -23,7 +23,7 @@ define Package/mica
 	+kmod-nls-iso8859-15 +kmod-nls-iso8859-2 +kmod-nls-utf8 \
 	+kmod-sdhci +kmod-sdhci-mt7620 +kmod-usb-storage \
 	+kmod-video-core +kmod-video-uvc \
-	+mtk-sdk-wifi +tcpdump-mini +mica-webui
+	+mtk-sdk-wifi +tcpdump-mini +mica-webui +KERNEL_DEVKMEM
    #+libmraa +libupm +node +node-hid +node-cylon-firmata
 
   CATEGORY:=MiCa
