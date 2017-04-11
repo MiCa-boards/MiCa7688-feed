@@ -22,8 +22,6 @@ enum {
 	MUX_UART2,
 	MUX_PWM0,
 	MUX_PWM1,
-	MUX_EPHY,
-	MUX_WLED,
 	__MUX_MAX,
 };
 
