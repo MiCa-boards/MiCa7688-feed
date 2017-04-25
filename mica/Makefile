@@ -15,7 +15,7 @@ define Package/mica
   	+avahi-nodbus-daemon +mountd +mjpg-streamer \
 	+uhttpd +rpcd +rpcd-mod-iwinfo +git +git-http \
 	+python +python-pyserial +python-pip +hidapi \
-	+yunbridge +libstdcpp \
+	+micabridge +libstdcpp \
 	+luci +luci-theme-openwrt +luci-app-mjpg-streamer +luci-lib-json \
 	+rpcd-mod-rpcsys +cgi-io +avrdude +spi-tools +uboot-envtools \
 	+kmod-fs-vfat +kmod-fs-exfat +kmod-i2c-core \

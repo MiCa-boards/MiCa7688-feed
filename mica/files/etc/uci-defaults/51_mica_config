@@ -5,10 +5,10 @@
 
 sed -i "s/.*mica$//g" /etc/opkg/distfeeds.conf
 
-BAUDRATE=`uci get yunbridge.config.baudrate`
+BAUDRATE=`uci get micabridge.config.baudrate`
 [ -n "${BAUDRATE}" ] || {
-	uci set yunbridge.config.baudrate=2500000
-	uci commit yunbridge
+	uci set micabridge.config.baudrate=2500000
+	uci commit micabridge
 }
 
 wan_mac=$(mtd_get_mac_binary factory 4)

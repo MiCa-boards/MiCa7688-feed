@@ -1,6 +1,0 @@
-#!/bin/sh
-
-mt7688_pinmux set spi_s gpio
-
-avrdude -p m328p -c linuxgpio -v -e -U flash:w:/etc/arduino/optiboot_atmega328.hex -U lock:w:0x0f:m
-

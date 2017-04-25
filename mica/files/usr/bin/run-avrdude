@@ -1,5 +1,10 @@
 #!/bin/sh
 
-mt7688_pinmux set spi_s gpio
-
-avrdude -c linuxgpio -C /etc/avrdude.conf -p m328p -e -v -Uflash:w:$1 $2
+GPIO=19
+echo $GPIO > /sys/class/gpio/export
+echo "out" > /sys/class/gpio/gpio$GPIO/direction
+echo 0 > /sys/class/gpio/gpio$GPIO/value
+sleep 1s
+echo 1 > /sys/class/gpio/gpio$GPIO/value
+echo $GPIO > /sys/class/gpio/unexport
+avrdude -v -p atmega328p -c arduino -P /dev/ttyUSB0 -b 57600 -D -U flash:w:$1 $2
