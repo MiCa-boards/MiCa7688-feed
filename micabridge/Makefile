@@ -8,16 +8,15 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=micabridge
-PKG_VERSION:=160
-
+PKG_VERSION:=2016-04-10
 PKG_RELEASE=$(PKG_SOURCE_VERSION)
 
+
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_URL:=https://github.com/arduino/YunBridge.git
+PKG_SOURCE_URL:=https://github.com/emavap/MiCaBridge.git
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
-PKG_SOURCE_VERSION:=f2042052115e71ad2c91f77e78d21db8275fcdd6
+PKG_SOURCE_VERSION:=master
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_SOURCE_VERSION).tar.gz
-PKG_LICENSE:=GPL-2.0
 
 include $(INCLUDE_DIR)/package.mk
 
