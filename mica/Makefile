@@ -15,7 +15,7 @@ define Package/mica
   	+avahi-nodbus-daemon +mountd +mjpg-streamer \
 	+uhttpd +rpcd +rpcd-mod-iwinfo +git +git-http \
 	+python +python-pyserial +python-pip +hidapi \
-	+micabridge +libstdcpp \
+	+libstdcpp \
 	+luci +luci-theme-openwrt +luci-app-mjpg-streamer +luci-lib-json \
 	+rpcd-mod-rpcsys +cgi-io +avrdude +spi-tools +uboot-envtools \
 	+kmod-fs-vfat +kmod-fs-exfat +kmod-i2c-core \
@@ -25,7 +25,6 @@ define Package/mica
 	+kmod-video-core +kmod-video-uvc \
 	+tcpdump-mini +mica-webui \
 	+kmod-mt76
-   #+mtk-sdk-wifi 
    #+libmraa +libupm +node +node-hid +node-cylon-firmata
 
   CATEGORY:=MiCa

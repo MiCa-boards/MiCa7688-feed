@@ -6,7 +6,6 @@
 board=$(ramips_board_name)
 
 [ "$board" = "mica7688" ] || {
-	rm -f /etc/avahi/services/arduino.service
 	return 0
 }
 

@@ -5,12 +5,6 @@
 
 sed -i "s/.*mica$//g" /etc/opkg/distfeeds.conf
 
-BAUDRATE=`uci get micabridge.config.baudrate`
-[ -n "${BAUDRATE}" ] || {
-	uci set micabridge.config.baudrate=2500000
-	uci commit micabridge
-}
-
 wan_mac=$(mtd_get_mac_binary factory 4)
 
 uci set network.wan.macaddr=$wan_mac
@@ -22,7 +16,8 @@ uci commit uhttpd
 WMODE=`uci get  wireless.radio0.mica_mode`
 [ -z "${WMODE}" ] && {
 	uci set wireless.radio0.mica_mode=ap
-	uci set wireless.sta.disabled=0
+	uci set wireless.ap.disabled=0
+	uci set wireless.sta.disabled=1
 }
 
 [ "$(uci get system.@system[-1].mica_firstboot)" = "1" ] && return 0
