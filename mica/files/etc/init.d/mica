@@ -10,6 +10,29 @@ start()
 		cp /www/index_7688.html /www/index.html
 		rm /www/index_7688.html
 	}
+	
+	WMODE=`uci get  wireless.radio0.mica_mode`
+	
+	case $WMODE in
+    apsta)
+        uci set wireless.radio0.mica_mode=apsta
+        uci set wireless.sta.disabled=0
+        uci set wireless.ap.disabled=0
+        uci commit
+        ;;
+    sta)
+        uci set wireless.radio0.mica_mode=sta
+        uci set wireless.sta.disabled=0
+        uci set wireless.ap.disabled=1
+        uci commit
+        ;;
+    ap)	
+        uci set wireless.radio0.mica_mode=ap
+        uci set wireless.sta.disabled=1
+        uci set wireless.ap.disabled=0
+        uci commit
+        ;;
+    esac
 
 	# sync the uboot envs wifi config with the uci wifi config
 	SEQ=`fw_printenv -n wifi_seq`
@@ -27,4 +50,12 @@ start()
 		uci set wireless.ap.seq="${SEQ}"
 		uci commit wireless
 	}
+	
+	GPIO=19
+    echo $GPIO > /sys/class/gpio/export
+    echo "out" > /sys/class/gpio/gpio$GPIO/direction
+    echo 0 > /sys/class/gpio/gpio$GPIO/value
+    sleep 1s
+    echo 1 > /sys/class/gpio/gpio$GPIO/value
+    echo $GPIO > /sys/class/gpio/unexport
 }
