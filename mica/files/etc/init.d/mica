@@ -11,6 +11,12 @@ start()
 		rm /www/index_7688.html
 	}
 	
+	GPIO=19
+    echo $GPIO > /sys/class/gpio/export
+    echo "out" > /sys/class/gpio/gpio$GPIO/direction
+    echo 1 > /sys/class/gpio/gpio$GPIO/value
+    echo $GPIO > /sys/class/gpio/unexport
+	
 	WMODE=`uci get  wireless.radio0.mica_mode`
 	
 	case $WMODE in
@@ -51,11 +57,5 @@ start()
 		uci commit wireless
 	}
 	
-	GPIO=19
-    echo $GPIO > /sys/class/gpio/export
-    echo "out" > /sys/class/gpio/gpio$GPIO/direction
-    echo 0 > /sys/class/gpio/gpio$GPIO/value
-    sleep 1s
-    echo 1 > /sys/class/gpio/gpio$GPIO/value
-    echo $GPIO > /sys/class/gpio/unexport
+	
 }
