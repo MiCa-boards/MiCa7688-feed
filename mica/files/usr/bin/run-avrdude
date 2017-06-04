@@ -7,4 +7,5 @@ echo 0 > /sys/class/gpio/gpio$GPIO/value
 sleep 1s
 echo 1 > /sys/class/gpio/gpio$GPIO/value
 echo $GPIO > /sys/class/gpio/unexport
-avrdude -v -p atmega328p -c arduino -P /dev/ttyS1 -b 57600 -D -U flash:w:$1 $2
+avrdude $2 $3 -c arduino -P /dev/ttyS1 -b 19200 -D -U flash:w:$1
+
