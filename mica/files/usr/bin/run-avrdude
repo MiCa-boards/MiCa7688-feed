@@ -1,5 +1,7 @@
 #!/bin/sh
 
+
+avrdude &> /dev/null
 GPIO=19
 echo $GPIO > /sys/class/gpio/export
 echo "out" > /sys/class/gpio/gpio$GPIO/direction
