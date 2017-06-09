@@ -26,7 +26,7 @@ define Package/mica
 	+tcpdump-mini +mica-webui \
 	+kmod-mt76 +nano +kmod-fs-ext4 +kmod-fs-nfs +kmod-fs-ntfs \
 	+kmod-i2c-mt7628 +kmod-usb-hid +kmod-pwm-mediatek \
-	
+	+block-mount +kmod-usb-storage-extras +e2fsprogs
    #+libmraa +libupm +node +node-hid +node-cylon-firmata
 
   CATEGORY:=MiCa
