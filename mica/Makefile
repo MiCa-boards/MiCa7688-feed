@@ -24,7 +24,9 @@ define Package/mica
 	+kmod-sdhci +kmod-sdhci-mt7620 +kmod-usb-storage \
 	+kmod-video-core +kmod-video-uvc \
 	+tcpdump-mini +mica-webui \
-	+kmod-mt76 +nano
+	+kmod-mt76 +nano +kmod-fs-ext4 +kmod-fs-nfs +kmod-fs-ntfs \
+	+kmod-i2c-mt7628 +kmod-usb-hid +kmod-pwm-mediatek \
+	
    #+libmraa +libupm +node +node-hid +node-cylon-firmata
 
   CATEGORY:=MiCa
