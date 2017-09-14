@@ -7,28 +7,32 @@
 logger "$BUTTON pressed for $SEEN seconds"
 
 # factory reset
-if [ "$SEEN" -gt 20 ]
+if [ "$SEEN" -gt 15 ]
 then
-	[ -f /tmp/.factory_reset ] && return
-	echo timer > /sys/class/leds/mica\:wifi/trigger
-	echo 100 > /sys/class/leds/mica\:wifi/delay_on
-	echo 100 > /sys/class/leds/mica\:wifi/delay_off
-	touch /tmp/.factory_reset
-	echo "FACTORY RESET" > /dev/console
-	jffs2reset -y
-	sync
-	reboot
+    [ -f /tmp/.factory_reset ] && return
+    echo none > /sys/class/leds/mica\:led1/trigger
+    echo 1 > /sys/class/leds/mica\:led1/brightness
+    logger "Factory Reset"
+    touch /tmp/.factory_reset
+    jffs2reset -y
+    sync
+    reboot -f &
+    echo 0 > /sys/class/leds/mica\:led1/brightness
+
 # wifi reset (back to ap mode)
 elif [ "$SEEN" -gt 5 ]
 then
-	mica_mode="$(uci get wireless.radio0.mica_mode)"
-	if [ ! "$mica_mode" = "ap" ]; then
-		echo none > /sys/class/leds/mica\:wifi/trigger
-		echo 1 > /sys/class/leds/mica\:wifi/brightness
-		sleep 1
-		echo "START WIFI AP" > /dev/console
-		/usr/bin/wifi_mode ap
-	fi
+    mica_mode="$(uci get wireless.radio0.mica_mode)"
+    if [ ! "$mica_mode" = "ap" ]
+    then
+        echo none > /sys/class/leds/mica\:led1/trigger
+        echo 1 > /sys/class/leds/mica\:led1/brightness
+        logger  "Ap mode reset"
+        /usr/bin/wifi_mode ap
+        echo 0 > /sys/class/leds/mica\:led1/brightness
+        echo none > /sys/class/leds/mica\:wifi/trigger
+        echo 1 > /sys/class/leds/mica\:wifi/brightness
+    fi
 fi
 
 return 0
