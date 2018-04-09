@@ -8,7 +8,7 @@ include $(TOPDIR)/rules.mk
 
 
 PKG_NAME:=mica-webui
-PKG_VERSION:=2016-04-10
+PKG_VERSION:=2018-04
 PKG_RELEASE=$(PKG_SOURCE_VERSION)
 
 
