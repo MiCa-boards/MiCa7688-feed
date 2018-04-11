@@ -1,0 +1,22 @@
+#!/bin/sh
+
+[ "$(uci get system.@system[-1].mica_firstboot)" = "1" ] && return 0
+
+APIFNAME=$(uci get wireless.ap.ifname)
+uci set network.lan.ifname=$APIFNAME
+uci set network.wan_eth=interface
+uci set network.wan_eth.proto=dhcp
+uci set network.wan_eth.ifname=eth0.1
+
+uci commit network
+
+ZONE=$(uci get firewall.@zone[1].name)
+[ "$ZONE" = "wan" ] || return
+WAN=$(uci get firewall.@zone[1].network)
+uci set firewall.@zone[1].network="$WAN wan_eth" 
+
+uci commit firewall
+
+
+
+
